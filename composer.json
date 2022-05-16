@@ -1,0 +1,23 @@
+{
+    "name": "sunsunza2009/gbprimepay",
+    "description": "Laravel GB Prime Pay",
+    "type": "package",
+    "license": "MIT",
+    "autoload":
+    {
+        "psr-4":
+        {
+            "Sunsunza2009\\Gbprimepay\\": "src/"
+        }
+    },
+    "authors": [
+    {
+        "name": "zugetor",
+        "email": "admin@zugetor.com"
+    }],
+    "minimum-stability": "stable",
+    "require":
+    {
+        "guzzlehttp/guzzle": "^7.4"
+    }
+}
