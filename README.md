@@ -46,7 +46,7 @@ $amount=10;
 $refNo="A001";
 $resUrl="https://www.example.com/webhook";
 //004 = KPLUS , 014 = SCB EASY (Only open in mobile) , 025 = KMA (Krungsri), 002 = BBL (Only open in mobile), 006 = KTB (Krungthai)
-$bankCode=004;
+$bankCode="004";
 $response = mbanking::create($amount, $refNo, $resUrl, $bankCode);
 dd($response);
 ```
