@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Http;
 
 class mbanking
 {
-    public static function create(int $amount, string $refNo, string $resUrl, int $bankCode)
+    public static function create(int $amount, string $refNo, string $resUrl, string $bankCode)
     {   
         $digData = $amount.$refNo.$resUrl.config('gbprimepay.backgroundUrl').$bankCode;
         $sig = hash_hmac('sha256', $digData, config('gbprimepay.secret_key'));
