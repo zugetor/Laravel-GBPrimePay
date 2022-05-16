@@ -7,7 +7,7 @@
     {
         "psr-4":
         {
-            "Sunsunza2009\\Gbprimepay\\": "src/"
+            "sunsunza2009\\gbprimepay\\": "src/"
         }
     },
     "authors": [
@@ -19,5 +19,14 @@
     "require":
     {
         "guzzlehttp/guzzle": "^7.4"
+    },
+    "extra":
+    {
+        "laravel":
+        {
+            "providers": [
+                "sunsunza2009\\gbprimepay\\GBServiceProvider"
+            ]
+        }
     }
 }

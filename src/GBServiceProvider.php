@@ -8,7 +8,7 @@ use sunsunza2009\gbprimepay\mbanking;
 
 use Illuminate\Support\ServiceProvider as LaravelServiceProvider;
 
-class ServiceProvider extends LaravelServiceProvider
+class GBServiceProvider extends LaravelServiceProvider
 {
 	public function boot()
 	{
@@ -19,7 +19,7 @@ class ServiceProvider extends LaravelServiceProvider
 
 	public function register()
 	{
-		$configPath = __DIR__ . '/config/gbprimepay.php';
+		$configPath = __DIR__ . '/../config/gbprimepay.php';
 		$this->mergeConfigFrom($configPath, 'gbprimepay');
 
 		$this->app->singleton(qrcash::class, function () {
