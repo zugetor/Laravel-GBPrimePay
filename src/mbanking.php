@@ -9,7 +9,7 @@ class mbanking
     public static function create(int $amount, string $refNo, string $resUrl, int $bankCode)
     {   
         $digData = $amount.$refNo.$resUrl.config('gbprimepay.backgroundUrl').$bankCode;
-        $sig = hash_hmac('sha256', $digData, config('gbprimepay.secret_key'))
+        $sig = hash_hmac('sha256', $digData, config('gbprimepay.secret_key'));
         
         $response = Http::asForm()->post(config('gbprimepay.url') . '/v2/mobileBanking', [
             'publicKey' => config('gbprimepay.public_key'),
