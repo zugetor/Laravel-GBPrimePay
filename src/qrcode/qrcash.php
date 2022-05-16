@@ -8,12 +8,16 @@ class qrcash
 {
     public static function create(int $amount, string $refNo)
     {
-        $response = Http::asForm()->post(config('gbprimepay.url') . '/v3/qrcode/text', [
+        $data = [
             'token' => config('gbprimepay.token'),
-            'backgroundUrl' => config('gbprimepay.backgroundUrl'),
             'amount' => $amount,
             'referenceNo' => $refNo
-        ]);
+        ];
+        if(!empty(config('gbprimepay.backgroundUrl'))){
+            $data["backgroundUrl"] = config('gbprimepay.backgroundUrl');
+        }
+        
+        $response = Http::asForm()->post(config('gbprimepay.url') . '/v3/qrcode/text', $data);
         return $response->json();
     }
 }
