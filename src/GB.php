@@ -1,6 +1,6 @@
 <?php
 
-namespace sunsunza2009\gbprimepay;
+namespace Sunsunza2009\Gbprimepay;
 
 class GB
 {

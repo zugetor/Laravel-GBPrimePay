@@ -7,7 +7,7 @@
     {
         "psr-4":
         {
-            "sunsunza2009\\gbprimepay\\": "src/"
+            "Sunsunza2009\\Gbprimepay\\": "src/"
         }
     },
     "authors": [
@@ -25,7 +25,7 @@
         "laravel":
         {
             "providers": [
-                "sunsunza2009\\gbprimepay\\GBServiceProvider"
+                "Sunsunza2009\\Gbprimepay\\GBServiceProvider"
             ]
         }
     }

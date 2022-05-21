@@ -1,10 +1,10 @@
 <?php
 
-namespace sunsunza2009\gbprimepay;
+namespace Sunsunza2009\Gbprimepay;
 
-use sunsunza2009\gbprimepay\qrcode\qrCash;
-use sunsunza2009\gbprimepay\qrcode\qrCredit;
-use sunsunza2009\gbprimepay\mBanking;
+use Sunsunza2009\Gbprimepay\Qrcode\QrCash;
+use Sunsunza2009\Gbprimepay\Qrcode\QrCredit;
+use Sunsunza2009\Gbprimepay\MBanking;
 
 use Illuminate\Support\ServiceProvider as LaravelServiceProvider;
 
@@ -22,16 +22,16 @@ class GBServiceProvider extends LaravelServiceProvider
 		$configPath = __DIR__ . '/../config/gbprimepay.php';
 		$this->mergeConfigFrom($configPath, 'gbprimepay');
 
-		$this->app->singleton(qrCash::class, function () {
-			return new qrCash;
+		$this->app->singleton(QrCash::class, function () {
+			return new QrCash;
 		});
 		
-		$this->app->singleton(qrCredit::class, function () {
-			return new qrCredit;
+		$this->app->singleton(QrCredit::class, function () {
+			return new QrCredit;
 		});
 
-		$this->app->singleton(mBanking::class, function () {
-			return new mBanking;
+		$this->app->singleton(MBanking::class, function () {
+			return new MBanking;
 		});
 	}
 
