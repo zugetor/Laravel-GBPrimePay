@@ -7,7 +7,7 @@
     {
         "psr-4":
         {
-            "Sunsunza2009\\Gbprimepay\\": "src/"
+            "Sunsunza2009\\Gbprimepay\\": "src"
         }
     },
     "authors": [
@@ -18,7 +18,8 @@
     "minimum-stability": "stable",
     "require":
     {
-        "guzzlehttp/guzzle": "^7.4"
+        "guzzlehttp/guzzle": "^7.4",
+        "illuminate/support": "^7.0|^8.0"
     },
     "extra":
     {
@@ -26,7 +27,11 @@
         {
             "providers": [
                 "Sunsunza2009\\Gbprimepay\\GBServiceProvider"
-            ]
+            ],
+            "aliases":
+            {
+                "QrCode": "Sunsunza2009\\Gbprimepay\\Facade\\QrCode"
+            }
         }
     }
 }
