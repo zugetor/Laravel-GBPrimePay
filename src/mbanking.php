@@ -4,7 +4,7 @@ namespace sunsunza2009\gbprimepay;
 
 use Illuminate\Support\Facades\Http;
 
-class mbanking
+class mBanking
 {
     public static function create(int $amount, string $refNo, string $resUrl, string $bankCode)
     {   

@@ -4,7 +4,7 @@ namespace sunsunza2009\gbprimepay\qrcode;
 
 use Illuminate\Support\Facades\Http;
 
-class qrcash
+class qrCash
 {
     public static function create(int $amount, string $refNo)
     {
