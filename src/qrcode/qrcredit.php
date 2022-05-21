@@ -1,23 +1,26 @@
 <?php
 
-namespace sunsunza2009\gbprimepay\qrcode;
+namespace sunsunza2009\gbprimepay\qrCode;
 
+use sunsunza2009\gbprimepay\GB;
 use Illuminate\Support\Facades\Http;
 
-class qrcredit
+class qrCredit extends GB
 {
     public static function create(int $amount, string $refNo)
     {
+        static::init();
+        
         $data = [
-            'token' => config('gbprimepay.token'),
+            'token' => self::$token,
             'amount' => $amount,
             'referenceNo' => $refNo
         ];
-        if(!empty(config('gbprimepay.backgroundUrl'))){
-            $data["backgroundUrl"] = config('gbprimepay.backgroundUrl');
+        if(!empty(self::$background_url)){
+            $data["backgroundUrl"] = self::$background_url;
         }
         
-        $response = Http::asForm()->post(config('gbprimepay.url') . '/v3/qrcredit/text', $data);
+        $response = Http::asForm()->post(self::$url . '/v3/qrcredit/text', $data);
         return $response->json();
     }
 }
