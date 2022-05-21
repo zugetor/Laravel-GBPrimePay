@@ -2,18 +2,21 @@
 
 namespace sunsunza2009\gbprimepay;
 
+use sunsunza2009\gbprimepay\GB;
 use Illuminate\Support\Facades\Http;
 
-class mBanking
+class mBanking extends GB
 {
     public static function create(int $amount, string $refNo, string $resUrl, string $bankCode)
     {   
-        $digData = $amount.$refNo.$resUrl.config('gbprimepay.backgroundUrl').$bankCode;
-        $sig = hash_hmac('sha256', $digData, config('gbprimepay.secret_key'));
+        static::init();
+
+        $digData = $amount.$refNo.$resUrl.self::$background_url.$bankCode;
+        $sig = hash_hmac('sha256', $digData, self::$secret_key);
         
-        $response = Http::asForm()->post(config('gbprimepay.url') . '/v2/mobileBanking', [
-            'publicKey' => config('gbprimepay.public_key'),
-            'backgroundUrl' => config('gbprimepay.backgroundUrl'),
+        $response = Http::asForm()->post(self::$url . '/v2/mobileBanking', [
+            'publicKey' => self::$public_key,
+            'backgroundUrl' => self::$background_url,
             'amount' => $amount,
             'referenceNo' => $refNo,
             'responseUrl' => $resUrl,
