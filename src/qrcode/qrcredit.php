@@ -1,10 +1,10 @@
 <?php
 
-namespace sunsunza2009\gbprimepay\qrcode;
+namespace sunsunza2009\gbprimepay\qrCode;
 
 use Illuminate\Support\Facades\Http;
 
-class qrcredit
+class qrCredit
 {
     public static function create(int $amount, string $refNo)
     {
