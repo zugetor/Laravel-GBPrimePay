@@ -30,7 +30,8 @@
             ],
             "aliases":
             {
-                "QrCode": "Sunsunza2009\\Gbprimepay\\Facade\\QrCode"
+                "QrCode": "Sunsunza2009\\Gbprimepay\\Facade\\QrCode",
+                "MobileBanking": "Sunsunza2009\\Gbprimepay\\Facade\\MobileBanking"
             }
         }
     }

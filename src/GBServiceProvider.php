@@ -21,6 +21,10 @@ class GBServiceProvider extends LaravelServiceProvider
 		$this->app->singleton(QrCode::class, function () {
 			return new QrCode();
 		});
+		
+		$this->app->singleton(MobileBanking::class, function () {
+			return new MobileBanking();
+		});
 	}
 
 	/**
