@@ -55,20 +55,21 @@ class MobileBanking
         return $this;   
     }
 
-    public function send(): array
+    public function send(): string
     {
-        $digData = $this->amount.$this->reference_no.$this->response_url.$this->background_url.$this->bank_code;
+        $amount = number_format($this->amount, 2);
+        $digData = $amount.$this->reference_no.$this->response_url.$this->background_url.$this->bank_code;
         $sig = hash_hmac('sha256', $digData, self::$secret_key);
 
         $response = Http::asForm()->post(self::$url . '/v2/mobileBanking', [
             'publicKey' => self::$public_key,
             'backgroundUrl' => $this->background_url,
-            'amount' => $this->amount,
+            'amount' => $amount,
             'referenceNo' => $this->reference_no,
             'responseUrl' => $this->response_url,
             'bankCode' => $this->bank_code,
             'checksum' => $sig,
         ]);
-        return $response->json();
+        return $response->body();
     }
 }
