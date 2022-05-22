@@ -19,22 +19,27 @@ Add config to .env
 GB_TOKEN=
 GB_PUBLIC_KEY=
 GB_SECRET_KEY=
-GB_BG_URL= //Webhook URL
 ```
 
 QR Cash Example
 ```php
-use sunsunza2009\gbprimepay\qrCode\qrCash;
+use Sunsunza2009\Gbprimepay\Facade\QrCode;
 
-$response = qrCash::create(10, "A001");
+$response = QrCode::setAmount(100.00)
+                ->setRefNo("A001")
+                ->setBackgroundUrl("http://www.test.example")
+                ->qrCash();
 dd($response);
 ```
 
 QR Credit Example
 ```php
-use sunsunza2009\gbprimepay\qrCode\qrCredit;
+use Sunsunza2009\Gbprimepay\Facade\QrCode;
 
-$response = qrCredit::create(10, "A001");
+$response = QrCode::setAmount(100.00)
+                ->setRefNo("A001")
+                ->setBackgroundUrl("http://www.test.example")
+                ->qrCredit();
 dd($response);
 ```
 
