@@ -19,34 +19,40 @@ Add config to .env
 GB_TOKEN=
 GB_PUBLIC_KEY=
 GB_SECRET_KEY=
-GB_BG_URL= //Webhook URL
 ```
 
 QR Cash Example
 ```php
-use sunsunza2009\gbprimepay\qrCode\qrCash;
+use Sunsunza2009\Gbprimepay\Facade\QrCode;
 
-$response = qrCash::create(10, "A001");
+$response = QrCode::setAmount(100.00)
+                ->setRefNo("A001")
+                ->setBackgroundUrl("http://www.test.example/webhook")
+                ->qrCash();
 dd($response);
 ```
 
 QR Credit Example
 ```php
-use sunsunza2009\gbprimepay\qrCode\qrCredit;
+use Sunsunza2009\Gbprimepay\Facade\QrCode;
 
-$response = qrCredit::create(10, "A001");
+$response = QrCode::setAmount(100.00)
+                ->setRefNo("A001")
+                ->setBackgroundUrl("http://www.test.example/webhook")
+                ->qrCredit();
 dd($response);
 ```
 
 Mobile Banking Example
 ```php
-use sunsunza2009\gbprimepay\mBanking;
+use Sunsunza2009\Gbprimepay\Facade\MobileBanking;
 
-$amount=10;
-$refNo="A001";
-$resUrl="https://www.example.com/webhook";
 //004 = KPLUS , 014 = SCB EASY (Only open in mobile) , 025 = KMA (Krungsri), 002 = BBL (Only open in mobile), 006 = KTB (Krungthai)
-$bankCode="004";
-$response = mBanking::create($amount, $refNo, $resUrl, $bankCode);
+$response = MobileBanking::setAmount(100.00)
+                ->setRefNo("A001")
+                ->setBackgroundUrl("http://www.test.example/webhook")
+                ->setResponseUrl("http://www.test.example/order")
+                ->setBankCode("004")
+                ->send();
 dd($response);
 ```
