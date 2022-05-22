@@ -7,7 +7,7 @@
     {
         "psr-4":
         {
-            "sunsunza2009\\gbprimepay\\": "src/"
+            "Sunsunza2009\\Gbprimepay\\": "src"
         }
     },
     "authors": [
@@ -18,15 +18,21 @@
     "minimum-stability": "stable",
     "require":
     {
-        "guzzlehttp/guzzle": "^7.4"
+        "guzzlehttp/guzzle": "^7.4",
+        "illuminate/support": "^7.0|^8.0"
     },
     "extra":
     {
         "laravel":
         {
             "providers": [
-                "sunsunza2009\\gbprimepay\\GBServiceProvider"
-            ]
+                "Sunsunza2009\\Gbprimepay\\GBServiceProvider"
+            ],
+            "aliases":
+            {
+                "QrCode": "Sunsunza2009\\Gbprimepay\\Facade\\QrCode",
+                "MobileBanking": "Sunsunza2009\\Gbprimepay\\Facade\\MobileBanking"
+            }
         }
     }
 }
