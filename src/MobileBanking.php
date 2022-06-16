@@ -55,7 +55,7 @@ class MobileBanking
         return $this;   
     }
 
-    public function send(): string
+    public function send(): array
     {
         $amount = number_format($this->amount, 2, ".", "");
         $digData = $amount.$this->reference_no.$this->response_url.$this->background_url.$this->bank_code;
@@ -70,6 +70,6 @@ class MobileBanking
             'bankCode' => $this->bank_code,
             'checksum' => $sig,
         ]);
-        return $response->body();
+        return array("status"=>$response->status(),"body"=>$response->body());
     }
 }
