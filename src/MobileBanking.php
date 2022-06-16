@@ -57,7 +57,7 @@ class MobileBanking
 
     public function send(): string
     {
-        $amount = number_format($this->amount, 2);
+        $amount = number_format($this->amount, 2, ".", "");
         $digData = $amount.$this->reference_no.$this->response_url.$this->background_url.$this->bank_code;
         $sig = hash_hmac('sha256', $digData, self::$secret_key);
 
