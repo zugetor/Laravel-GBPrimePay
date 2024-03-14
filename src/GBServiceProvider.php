@@ -1,27 +1,24 @@
 <?php
 
-namespace Sunsunza2009\Gbprimepay;
+namespace Zugetor\Gbprimepay;
 
 use Illuminate\Support\ServiceProvider as LaravelServiceProvider;
 
-class GBServiceProvider extends LaravelServiceProvider
-{
-	public function boot()
-	{
+class GBServiceProvider extends LaravelServiceProvider {
+	public function boot() {
 		$this->publishes([
-			__DIR__.'/../config/gbprimepay.php' => config_path('gbprimepay.php'),
+			__DIR__ . '/../config/gbprimepay.php' => config_path('gbprimepay.php'),
 		], 'config');
 	}
 
-	public function register()
-	{
+	public function register() {
 		$configPath = __DIR__ . '/../config/gbprimepay.php';
 		$this->mergeConfigFrom($configPath, 'gbprimepay');
 
 		$this->app->singleton(QrCode::class, function () {
 			return new QrCode();
 		});
-		
+
 		$this->app->singleton(MobileBanking::class, function () {
 			return new MobileBanking();
 		});
@@ -31,7 +28,7 @@ class GBServiceProvider extends LaravelServiceProvider
 	 * @return array
 	public function provides()
 	{
-		return [gbprimepay::class];
+	return [gbprimepay::class];
 	}
-	*/
+	 */
 }
