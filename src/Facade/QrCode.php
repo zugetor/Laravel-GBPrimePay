@@ -1,11 +1,10 @@
 <?php
 
-namespace Sunsunza2009\Gbprimepay\Facade;
+namespace Zugetor\Gbprimepay\Facade;
 
 class QrCode extends \Illuminate\Support\Facades\Facade
 {
-    protected static function getFacadeAccessor()
-    {
-        return \Sunsunza2009\Gbprimepay\QrCode::class;
-    }
+	protected static function getFacadeAccessor() {
+		return \Zugetor\Gbprimepay\QrCode::class;
+	}
 }

@@ -1,5 +1,5 @@
 {
-    "name": "sunsunza2009/gbprimepay",
+    "name": "zugetor/gbprimepay",
     "description": "Laravel GB Prime Pay",
     "type": "package",
     "license": "MIT",
@@ -7,7 +7,7 @@
     {
         "psr-4":
         {
-            "Sunsunza2009\\Gbprimepay\\": "src"
+            "Zugetor\\Gbprimepay\\": "src"
         }
     },
     "authors": [
@@ -26,12 +26,12 @@
         "laravel":
         {
             "providers": [
-                "Sunsunza2009\\Gbprimepay\\GBServiceProvider"
+                "Zugetor\\Gbprimepay\\GBServiceProvider"
             ],
             "aliases":
             {
-                "QrCode": "Sunsunza2009\\Gbprimepay\\Facade\\QrCode",
-                "MobileBanking": "Sunsunza2009\\Gbprimepay\\Facade\\MobileBanking"
+                "QrCode": "Zugetor\\Gbprimepay\\Facade\\QrCode",
+                "MobileBanking": "Zugetor\\Gbprimepay\\Facade\\MobileBanking"
             }
         }
     }
